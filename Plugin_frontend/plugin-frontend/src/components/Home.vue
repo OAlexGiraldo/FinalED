@@ -1,7 +1,7 @@
 <template>
     <div>
       <h1>Bienvenido a Mi Tienda</h1>
-      <div class="product-list">
+      <div class="product-list row row-cols-1 row-cols-md-6 mt-6 g-5">
         <ProductCard v-for="product in products" :key="product.id" :product="product" />
       </div>
     </div>

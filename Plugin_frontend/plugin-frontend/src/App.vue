@@ -1,7 +1,48 @@
 <template>
   <div id="app">
-    <nav class="main-nav">
-      <router-link to="/" class="nav-brand">Mi Tienda</router-link>
+
+    <nav class="main-nav navbar navbar-expand-lg bg-body-primary">
+  <div class="container-fluid">
+    <router-link to="/" class="nav-brand">Mi Tienda</router-link>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
       <div class="nav-search">
         <input type="text" placeholder="Buscar..." class="search-input">
         <button class="search-button"><font-awesome-icon icon="search" /></button>
@@ -13,30 +54,9 @@
         </button>
         <span class="cart-text">Carrito</span>
       </div>
-    </nav>
-
-    <div class="additional-selectors">
-      <select>
-        <option value="">Opción 1</option>
-        <option value="value1">Valor 1</option>
-        <option value="value2">Valor 2</option>
-      </select>
-      <select>
-        <option value="">Opción 2</option>
-        <option value="value1">Valor 1</option>
-        <option value="value2">Valor 2</option>
-      </select>
-      <select>
-        <option value="">Opción 3</option>
-        <option value="value1">Valor 1</option>
-        <option value="value2">Valor 2</option>
-      </select>
-      <select>
-        <option value="">Opción 4</option>
-        <option value="value1">Valor 1</option>
-        <option value="value2">Valor 2</option>
-      </select>
     </div>
+  </div>
+</nav>
 
     <div class="container">
       <router-view></router-view>
@@ -71,12 +91,12 @@ export default {
 
 <style>
 .main-nav {
-  position: fixed; 
+  position:fixed; 
   top: 0;
   left: 0; 
-  width: 98%; 
+  width: 100%; 
   z-index: 1000; 
-  background-color: #fff;
+  background-color: #286be7;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -84,10 +104,11 @@ export default {
 }
 
 .nav-brand {
-  color: #007bff;
+  color: #f1f2f3;
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
+  margin-right: 5px;
 }
 
 .nav-search {
@@ -114,26 +135,6 @@ export default {
   margin-left: 20px;
 }
 
-.additional-selectors {
-  position: fixed; 
-  top: 60px; 
-  left: 10px; 
-  display: flex;
-  align-items: center;
-}
-
-.additional-selectors select {
-  padding: 8px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #f8f9fa;
-  margin-right: 10px; 
-}
-
-.additional-selectors {
-  flex-direction: row;
-}
 
 .nav-cart {
   display: flex;
