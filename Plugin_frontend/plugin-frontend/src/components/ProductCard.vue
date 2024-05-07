@@ -5,7 +5,7 @@
       <h2>{{ product.name }}</h2>
       <p>Precio: {{ product.price }}</p>
       <p>Descripción: {{ product.description }}</p>
-      <a href="#" class="btn btn-primary">Añadir al Carrito</a>
+      <a href="#" class="btn btn-primary" id="Añadir">Añadir al Carrito</a>
   </div>
 </div>
   </template>
