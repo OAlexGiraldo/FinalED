@@ -43,8 +43,15 @@
             </li>
           </ul>
           <div class="nav-search">
-            <input type="text" placeholder="Buscar..." class="search-input">
-            <button class="search-button"><font-awesome-icon icon="search" /></button>
+            <input type="text" placeholder="Buscar..." class="search-input" v-model="searchTerm" @input="updateSuggestions" @keyup.enter="performSearch">
+            <button class="search-button" @click="performSearch">
+              <font-awesome-icon icon="search" />
+            </button>
+            <ul v-if="showSuggestions" class="suggestions-list">
+              <li v-for="(suggestion, index) in suggestions" :key="index" @click="selectSuggestion(suggestion)" style="color: white;">
+                {{ suggestion }}
+              </li>
+            </ul>
           </div>
           <div class="nav-cart">
             <button class="cart-button" @click="openCart">
@@ -105,6 +112,9 @@ export default {
     const cartCount = ref(0);
     const cartItems = ref([]);
     const showCart = ref(false);
+    const searchTerm = ref('');
+    const suggestions = ref([]); 
+    const showSuggestions = ref(false); 
 
     const openCart = () => {
       showCart.value = true;
@@ -137,6 +147,40 @@ export default {
       }
     };
 
+    const search = () => {
+      if (searchTerm.value.trim() !== '') {        
+        console.log('Búsqueda realizada:', searchTerm.value);    
+      } else {
+        alert('Por favor, ingresa un término de búsqueda válido.');
+      }
+    };
+
+    const updateSuggestions = () => {
+      if (searchTerm.value.trim() !== '') {
+        
+        suggestions.value = ['Producto 1', 'Producto 2', 'Producto 3', 'Producto 4', 'Producto 5'].filter(suggestion => {
+          return suggestion.toLowerCase().includes(searchTerm.value.trim().toLowerCase());
+        });
+        showSuggestions.value = true;
+      } else {
+        
+        suggestions.value = [];
+        showSuggestions.value = false;
+      }
+    };
+
+    const selectSuggestion = (suggestion) => {
+      searchTerm.value = suggestion;
+      showSuggestions.value = false;
+    };
+
+    const performSearch = () => {
+      search();
+    };
+
+
+
+
 
     return {
       cartCount,
@@ -146,6 +190,14 @@ export default {
       removeFromCart,
       cartItems,
       showCart,
+      searchTerm,
+      suggestions,
+      search,
+      showSuggestions,
+      updateSuggestions,
+      selectSuggestion,
+      performSearch
+
     };
   },
 };
