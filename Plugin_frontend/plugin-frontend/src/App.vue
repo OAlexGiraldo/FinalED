@@ -30,17 +30,6 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Link
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
           </ul>
           <div class="nav-search">
             <input type="text" placeholder="Buscar..." class="search-input" v-model="searchTerm" @input="updateSuggestions" @keyup.enter="performSearch">
@@ -59,6 +48,12 @@
               <span class="cart-count">{{ cartCount }}</span>
             </button>
             <span class="cart-text">Carrito</span>
+          </div>
+          <div class="nav-user">
+            <button class="user-button" @click="openUser">
+              <font-awesome-icon icon="user" />
+            </button>
+            <span class="cart-text">Iniciar Session</span>
           </div>
         </div>
       </div>
@@ -81,8 +76,9 @@
           </div>
           <div class="modal-body">
             <div v-if="cartItems.length === 0" class="text-center">No hay productos en el carrito.</div>
-            <div v-else>
-              <div v-for="item in cartItems" :key="item.id" class="mb-3">
+            <div v-else class="col col-rows-1 col-rows-md-6 mt-6 g-5 ml-5">
+              <div v-for="item in cartItems" :key="item.id" class="mb-6">
+                <img :src="item.foto" class="card-img-top1" alt="...">
                 <h5>{{ item.name }}</h5>
                 <p>Precio: {{ item.price }}</p>
                 <p>Cantidad: {{ item.quantity }}</p>
@@ -118,6 +114,9 @@ export default {
 
     const openCart = () => {
       showCart.value = true;
+    };
+    const openUser=()=>{
+      showUser.value = true;
     };
 
     const closeCart = () => {
@@ -255,8 +254,22 @@ export default {
   align-items: center;
   margin-left: 10px;
 }
+.nav-user{
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
 
 .cart-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+.user-button{
   background-color: #007bff;
   color: white;
   padding: 8px;
@@ -289,6 +302,7 @@ export default {
   padding: 20px;
   padding-top: 100px;
   margin-top: 60px;
+  opacity: 100%;
 }
 
 /* Estilos para la modal */
@@ -314,10 +328,10 @@ export default {
 
 .modal-content {
   position: relative;
-  background-color: #fff;
+  background-color: #ffffff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
+  border-radius: 2rem;
   outline: 0;
 }
 
@@ -326,9 +340,11 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #0e7ceb;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
+  background-color: #0e7ceb;
+  border-radius: 1rem;
 }
 
 .modal-title {
@@ -355,5 +371,10 @@ export default {
 /* Estilos para la modal cuando se muestra */
 .modal.show {
   display: block;
+}
+
+.card-img-top1{
+  width: auto;
+  height: auto;
 }
 </style>

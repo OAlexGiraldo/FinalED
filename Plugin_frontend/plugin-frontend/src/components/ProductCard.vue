@@ -1,6 +1,7 @@
 <template>
   <div class="card" style="width: 18rem;">
-    <img src="@/assets/fondo1.jpg" class="card-img-top" alt="...">
+  
+    <img :src="product.foto" class="card-img-top" alt="...">
     <div class="card-body">
       <h2>{{ product.name }}</h2>
       <p>Precio: {{ product.price }}</p>
@@ -36,5 +37,12 @@ export default {
   margin-bottom: 10px;
   margin-left: 10px;
   position: inherit;
+  opacity: 100%;
+}
+
+.card-img-top{
+  width: 50%;
+  height: auto;
+  position:center;
 }
 </style>
