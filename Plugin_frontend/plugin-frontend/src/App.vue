@@ -53,7 +53,10 @@
             <button class="user-button" @click="openUser">
               <font-awesome-icon icon="user" />
             </button>
-            <span class="cart-text">Iniciar Session</span>
+            <span class="cart-text"></span>
+            <div id="app">
+              <Login></Login>
+            </div>
           </div>
         </div>
       </div>
@@ -98,11 +101,13 @@
 <script>
 import { ref } from 'vue';
 import Footer from './components/Footer.vue';
+import Login from './components/Login.vue';
 
 export default {
   name: 'App',
   components: {
-    Footer
+    Footer,
+    Login
   },
   setup() {
     const cartCount = ref(0);
