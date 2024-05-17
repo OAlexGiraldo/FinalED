@@ -4,8 +4,8 @@
     <div v-if="!isLoggedIn && !showForm"> <!-- Mostrar solo si el usuario no está logueado y el formulario de registro no está mostrándose -->
       <input type="text" v-model="username" placeholder="Nombre de usuario">
       <input type="password" v-model="password" placeholder="Contraseña">
-      <button @click="login">Iniciar sesión</button>
-      <button @click="showRegistrationForm">Registro</button>
+      <button type="button" class="btn btn-primary" @click="login">Iniciar sesión</button>
+      <button type="button" class="btn btn-primary" @click="showRegistrationForm">Registro</button>
     </div>
     
     <!-- Mensaje de usuario logueado (mostrado condicionalmente) -->
@@ -18,12 +18,12 @@
     <div v-if="showForm">
       <!-- Aquí va tu formulario de registro -->
       <h2 style="color: white;">Formulario de Registro</h2>
-      <input type="text" v-model="registration.username" placeholder="Nombre de usuario">
-      <input type="password" v-model="registration.password" placeholder="Contraseña">
-      <input type="text" v-model="registration.email" placeholder="Email">
-      <input type="text" v-model="registration.phone" placeholder="Celular">
-      <button @click="register">Registrarse</button>
-      <button @click="hideRegistrationForm">Cancelar</button>
+      <input class="registro" type="text" v-model="registration.username" placeholder="Nombre de usuario">
+      <input class="registro" type="password" v-model="registration.password" placeholder="Contraseña">
+      <input class="registro" type="text" v-model="registration.email" placeholder="Email">
+      <input class="registro" type="text" v-model="registration.phone" placeholder="Celular">
+      <button type="button" class="btn btn-primary" @click="register">Registrarse</button>
+      <button type="button" class="btn btn-primary" @click="hideRegistrationForm">Cancelar</button>
     </div>
   </div>
 </template>
@@ -93,3 +93,15 @@ export default {
   }
 };
 </script>
+
+<style>
+input {
+  border: 1px solid #ccc; /* Borde normal */
+  border-radius: 10px; /* Bordes redondos */
+  padding: 10px; /* Espacio interno para el contenido */
+  margin-left: 10px; /* Agrega separación a la izquierda */
+}
+button{
+  margin-left: 10px; /* Agrega separación a la izquierda */
+}
+</style>

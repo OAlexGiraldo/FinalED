@@ -50,11 +50,7 @@
             <span class="cart-text">Carrito</span>
           </div>
           <div class="nav-user">
-            <button class="user-button" @click="openUser">
-              <font-awesome-icon icon="user" />
-            </button>
-            <span class="cart-text"></span>
-            <div id="app">
+            <div>
               <Login></Login>
             </div>
           </div>
@@ -181,8 +177,6 @@ export default {
     const performSearch = () => {
       search();
     };
-
-
 
 
 

@@ -1,8 +1,8 @@
 <template>
   <div class="card" style="width: 18rem;">
   
-    <img :src="product.foto" class="card-img-top" alt="...">
-    <div class="card-body">
+    <img :src="product.foto" class="card-img-top " alt="...">
+    <div class="card-body opacity-100">
       <h2>{{ product.name }}</h2>
       <p>Precio: {{ product.price }}</p>
       <p>Descripción: {{ product.description }}</p>
@@ -31,18 +31,19 @@ export default {
 
 <style>
 .card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 5px solid #0f0f0f;
+  border-radius: 20px;
   padding: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
   position: inherit;
-  opacity: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .card-img-top{
   width: 50%;
   height: auto;
-  position:center;
+  margin-left: auto; /* Centra horizontalmente */
+  margin-right: auto; /* Centra horizontalmente */
 }
 </style>
