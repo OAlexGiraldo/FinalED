@@ -31,13 +31,13 @@ export default {
 
 <style>
 .card {
-  border: 5px solid #0f0f0f;
+  border: 1px solid #fafafa;
   border-radius: 20px;
   padding: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
   position: inherit;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(255, 255, 255);
 }
 
 .card-img-top{

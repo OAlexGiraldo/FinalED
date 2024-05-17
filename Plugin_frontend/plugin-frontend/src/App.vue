@@ -75,7 +75,7 @@
           </div>
           <div class="modal-body">
             <div v-if="cartItems.length === 0" class="text-center">No hay productos en el carrito.</div>
-            <div v-else class="col col-rows-1 col-rows-md-6 mt-6 g-5 ml-5">
+            <div v-else class="row row-cols-2 row-cols-md-3 mt-3 g-2 ml-2">
               <div v-for="item in cartItems" :key="item.id" class="mb-6">
                 <img :src="item.foto" class="card-img-top1" alt="...">
                 <h5>{{ item.name }}</h5>
