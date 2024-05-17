@@ -75,7 +75,7 @@
           </div>
           <div class="modal-body">
             <div v-if="cartItems.length === 0" class="text-center">No hay productos en el carrito.</div>
-            <div v-else class="row row-cols-2 row-cols-md-3 mt-3 g-2 ml-2">
+            <div v-else class="col col-rows-1 col-rows-md-6 mt-6 g-5 ml-5">
               <div v-for="item in cartItems" :key="item.id" class="mb-6">
                 <img :src="item.foto" class="card-img-top1" alt="...">
                 <h5>{{ item.name }}</h5>
@@ -83,10 +83,12 @@
                 <p>Cantidad: {{ item.quantity }}</p>
                 <button @click="removeFromCart(item)" class="btn btn-danger">Eliminar</button>
               </div>
+              
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" @click="closeCart">Cerrar</button>
+          <div class="button-container text-center mt-3">
+            <button type="button" class="btn btn-secondary mr-3" @click="closeCart">Cerrar</button>
+            <button @click="purchaseItems" class="btn btn-primary ml-3">Comprar</button>
           </div>
         </div>
       </div>
@@ -147,6 +149,18 @@ export default {
       }
     };
 
+    const purchaseItems = () => {
+  if (cartItems.value.length > 0) {
+    alert('Su pedido ha sido tomado');
+    cartItems.value = [];
+    cartCount.value = 0;
+    closeCart();
+  } else {
+    alert('El carrito está vacío.');
+  }
+};
+   
+
     const search = () => {
       if (searchTerm.value.trim() !== '') {        
         console.log('Búsqueda realizada:', searchTerm.value);    
@@ -194,7 +208,9 @@ export default {
       showSuggestions,
       updateSuggestions,
       selectSuggestion,
-      performSearch
+      performSearch,
+      purchaseItems
+      
 
     };
   },
