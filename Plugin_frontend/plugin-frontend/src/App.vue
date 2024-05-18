@@ -3,41 +3,53 @@
     <nav class="main-nav navbar navbar-expand-lg bg-body-primary">
       <div class="container-fluid">
         <router-link to="/" class="nav-brand">Mi Tienda</router-link>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Repuestos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="https://ipc-importadores.com/es/categoria/repuestos-motopartes/pagina/1">Motos</a></li>
-                <li><a class="dropdown-item" href="https://ipc-importadores.com/es/categoria/repuestos-motopartes/pagina/1">Carros</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="https://ipc-importadores.com/es/categoria/repuestos-motopartes/pagina/1">Todos</a></li>
+                <li><a class="dropdown-item"
+                    href="https://ipc-importadores.com/es/categoria/repuestos-motopartes/pagina/1">Motos</a></li>
+                <li><a class="dropdown-item"
+                    href="https://ipc-importadores.com/es/categoria/repuestos-motopartes/pagina/1">Carros</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item"
+                    href="https://ipc-importadores.com/es/categoria/repuestos-motopartes/pagina/1">Todos</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Pedidos
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">En curso</a></li>
                 <li><a class="dropdown-item" href="#">Finalizados</a></li>
-                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="#">Todos</a></li>
               </ul>
             </li>
           </ul>
           <div class="nav-search">
-            <input type="text" placeholder="Buscar..." class="search-input" v-model="searchTerm" @input="updateSuggestions" @keyup.enter="performSearch">
+            <input type="text" placeholder="Buscar..." class="search-input" v-model="searchTerm"
+              @input="updateSuggestions" @keyup.enter="performSearch">
             <button class="search-button" @click="performSearch">
               <font-awesome-icon icon="search" />
             </button>
             <ul v-if="showSuggestions" class="suggestions-list">
-              <li v-for="(suggestion, index) in suggestions" :key="index" @click="selectSuggestion(suggestion)" style="color: white;">
+              <li v-for="(suggestion, index) in suggestions" :key="index" @click="selectSuggestion(suggestion)"
+                style="color: white;">
                 {{ suggestion }}
               </li>
             </ul>
@@ -83,7 +95,7 @@
                 <p>Cantidad: {{ item.quantity }}</p>
                 <button @click="removeFromCart(item)" class="btn btn-danger">Eliminar</button>
               </div>
-              
+
             </div>
           </div>
           <div class="button-container text-center mt-3">
@@ -112,13 +124,33 @@ export default {
     const cartItems = ref([]);
     const showCart = ref(false);
     const searchTerm = ref('');
-    const suggestions = ref([]); 
-    const showSuggestions = ref(false); 
+    const suggestions = ref([]);
+    const showSuggestions = ref(false);
+
+    const products = ref([
+      { id: 1, foto: new URL('../assets/img/imagen1.png', import.meta.url).href, name: 'ARBOL LEVAS AKT125SL/XLR', price: 10.99, description: 'Descripción del Producto 1' },
+      { id: 2, foto: new URL('../assets/img/imagen2.png', import.meta.url).href, name: 'ARBOL LEVAS BOXER CT100 ', price: 119.99, description: 'Descripción del Producto 2' },
+      { id: 3, foto: new URL('../assets/img/imagen3.png', import.meta.url).href, name: 'BANDA FRENO TRAS NON', price: 229.99, description: 'Descripción del Producto 3' },
+      { id: 4, foto: new URL('../assets/img/imagen4.png', import.meta.url).href, name: 'BARRAS TELESCOPICAS ', price: 239.99, description: 'Descripción del Producto 4' },
+      { id: 5, foto: new URL('../assets/img/imagen5.png', import.meta.url).href, name: 'BOBINA ALTA HONDA ', price: 249.99, description: 'Descripción del Producto 5' },
+      { id: 6, foto: new URL('../assets/img/imagen6.png', import.meta.url).href, name: 'BOMBA FRENO DEL TANQ ', price: 529.99, description: 'Descripción del Producto 6' },
+      { id: 7, foto: new URL('../assets/img/imagen7.png', import.meta.url).href, name: 'BOMBILLO FAROLA ', price: 269.99, description: 'Descripción del Producto 7' },
+      { id: 8, foto: new URL('../assets/img/imagen8.png', import.meta.url).href, name: 'BOMBILLO LED 158 12V', price: 279.99, description: 'Descripción del Producto 8' },
+      { id: 9, foto: new URL('../assets/img/imagen9.png', import.meta.url).href, name: 'BOMBILLO LED H4 P43T', price: 10.99, description: 'Descripción del Producto 9' },
+      { id: 10, foto: new URL('../assets/img/imagen10.png', import.meta.url).href, name: 'BRAZO TENSOR CADENILLA ', price: 119.99, description: 'Descripción del Producto 10' },
+      { id: 11, foto: new URL('../assets/img/imagen11.png', import.meta.url).href, name: 'BUJE PORTACATALINA ', price: 229.99, description: 'Descripción del Producto 11' },
+      { id: 12, foto: new URL('../assets/img/imagen12.png', import.meta.url).href, name: 'BUJE PORTACATALINA ', price: 239.99, description: 'Descripción del Producto 12' },
+      { id: 13, foto: new URL('../assets/img/imagen13.png', import.meta.url).href, name: 'CABLE ACELERADOR ', price: 249.99, description: 'Descripción del Producto 13' },
+      { id: 14, foto: new URL('../assets/img/imagen14.png', import.meta.url).href, name: 'CADENA 520H x 110L', price: 529.99, description: 'Descripción del Producto 14' },
+      { id: 15, foto: new URL('../assets/img/imagen15.png', import.meta.url).href, name: 'CABLE FRENO BOXER CT 100', price: 269.99, description: 'Descripción del Producto 15' },
+      { id: 16, foto: new URL('../assets/img/imagen16.png', import.meta.url).href, name: 'CABLE CLUTCH PULSAR', price: 279.99, description: 'Descripción del Producto 16' },
+    ]);
+    
 
     const openCart = () => {
       showCart.value = true;
     };
-    const openUser=()=>{
+    const openUser = () => {
       showUser.value = true;
     };
 
@@ -150,34 +182,57 @@ export default {
     };
 
     const purchaseItems = () => {
-  if (cartItems.value.length > 0) {
-    alert('Su pedido ha sido tomado');
-    cartItems.value = [];
-    cartCount.value = 0;
-    closeCart();
-  } else {
-    alert('El carrito está vacío.');
-  }
-};
-   
+      if (cartItems.value.length > 0) {
+        alert('Su pedido ha sido tomado');
+        cartItems.value = [];
+        cartCount.value = 0;
+        closeCart();
+      } else {
+        alert('El carrito está vacío.');
+      }
+    };
+
 
     const search = () => {
-      if (searchTerm.value.trim() !== '') {        
-        console.log('Búsqueda realizada:', searchTerm.value);    
+      if (searchTerm.value.trim() !== '') {
+        console.log('Búsqueda realizada:', searchTerm.value);
       } else {
         alert('Por favor, ingresa un término de búsqueda válido.');
       }
     };
 
+    const dfs = (node, searchTermLower, visited = new Set()) => {
+      if (visited.has(node.id)) return [];
+
+      visited.add(node.id);
+
+      let matches = [];
+      if (node.name.toLowerCase().includes(searchTermLower)) {
+        matches.push(node.name);
+      }
+
+      if (Array.isArray(node.related)) {
+        for (let relatedId of node.related) {
+          const relatedNode = products.value.find(product => product.id === relatedId);
+          if (relatedNode) {
+            matches = matches.concat(dfs(relatedNode, searchTermLower, visited));
+          }
+        }
+      }
+
+      return matches;
+    };
+
     const updateSuggestions = () => {
       if (searchTerm.value.trim() !== '') {
-        
-        suggestions.value = ['Producto 1', 'Producto 2', 'Producto 3', 'Producto 4', 'Producto 5'].filter(suggestion => {
-          return suggestion.toLowerCase().includes(searchTerm.value.trim().toLowerCase());
-        });
+        const searchTermLower = searchTerm.value.trim().toLowerCase();
+        const visited = new Set();
+
+        // Inicia DFS desde cada nodo no visitado
+        suggestions.value = products.value.flatMap(product => dfs(product, searchTermLower, visited));
+
         showSuggestions.value = true;
       } else {
-        
         suggestions.value = [];
         showSuggestions.value = false;
       }
@@ -186,6 +241,7 @@ export default {
     const selectSuggestion = (suggestion) => {
       searchTerm.value = suggestion;
       showSuggestions.value = false;
+      performSearch();
     };
 
     const performSearch = () => {
@@ -210,7 +266,7 @@ export default {
       selectSuggestion,
       performSearch,
       purchaseItems
-      
+
 
     };
   },
@@ -269,10 +325,36 @@ export default {
   align-items: center;
   margin-left: 10px;
 }
-.nav-user{
+
+.nav-user {
   display: flex;
   align-items: center;
   margin-left: 10px;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 20%;
+  /* Cambiado a 25% para que ocupe la mitad del ancho */
+  width: 24%;
+  /* Cambiado a 50% para que ocupe la mitad del ancho */
+  background-color: rgba(14, 27, 55, 0.9);
+  color: white;
+  border-radius: 5px;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .cart-button {
@@ -284,7 +366,8 @@ export default {
   cursor: pointer;
   position: relative;
 }
-.user-button{
+
+.user-button {
   background-color: #007bff;
   color: white;
   padding: 8px;
@@ -388,7 +471,7 @@ export default {
   display: block;
 }
 
-.card-img-top1{
+.card-img-top1 {
   width: auto;
   height: auto;
 }
