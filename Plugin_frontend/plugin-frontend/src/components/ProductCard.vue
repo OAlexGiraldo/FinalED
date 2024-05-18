@@ -46,4 +46,7 @@ export default {
   margin-left: auto; /* Centra horizontalmente */
   margin-right: auto; /* Centra horizontalmente */
 }
+p{
+  font-size: 20px;
+}
 </style>

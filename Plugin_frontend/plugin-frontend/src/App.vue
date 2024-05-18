@@ -10,24 +10,24 @@
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Link
+                Repuestos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="https://ipc-importadores.com/es/categoria/repuestos-motopartes/pagina/1">Motos</a></li>
+                <li><a class="dropdown-item" href="https://ipc-importadores.com/es/categoria/repuestos-motopartes/pagina/1">Carros</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="https://ipc-importadores.com/es/categoria/repuestos-motopartes/pagina/1">Todos</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Link
+                Pedidos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">En curso</a></li>
+                <li><a class="dropdown-item" href="#">Finalizados</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Todos</a></li>
               </ul>
             </li>
           </ul>
@@ -75,7 +75,7 @@
           </div>
           <div class="modal-body">
             <div v-if="cartItems.length === 0" class="text-center">No hay productos en el carrito.</div>
-            <div v-else class="col col-rows-1 col-rows-md-6 mt-6 g-5 ml-5">
+            <div v-else class="row row-cols-3 row-cols-md-3 mt-3 g-2 ml-2">
               <div v-for="item in cartItems" :key="item.id" class="mb-6">
                 <img :src="item.foto" class="card-img-top1" alt="...">
                 <h5>{{ item.name }}</h5>
@@ -87,7 +87,7 @@
             </div>
           </div>
           <div class="button-container text-center mt-3">
-            <button type="button" class="btn btn-secondary mr-3" @click="closeCart">Cerrar</button>
+            <button type="button" class="btn btn-primary mr-3" @click="closeCart">Cerrar</button>
             <button @click="purchaseItems" class="btn btn-primary ml-3">Comprar</button>
           </div>
         </div>

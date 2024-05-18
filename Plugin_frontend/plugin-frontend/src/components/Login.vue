@@ -11,7 +11,7 @@
     <!-- Mensaje de usuario logueado (mostrado condicionalmente) -->
     <div v-if="isLoggedIn" style="color: white;">
       Usuario logueado: {{ loggedInUser }}
-      <button @click="logout">Cerrar sesión</button>
+      <button type="button" class="btn btn-primary" @click="logout">Cerrar sesión</button>
     </div>
     
     <!-- Formulario de registro (mostrado condicionalmente) -->
